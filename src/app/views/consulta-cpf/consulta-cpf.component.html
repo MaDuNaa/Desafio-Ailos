@@ -15,9 +15,19 @@
 
     
         <h3>CPF</h3>
-
+      
           <form>
-            <input type="text" id="cpf" name="cpf"> <button class="btn">Consultar por CPF</button>
+            <input (input)="formataInput()"  [(ngModel)]="cpf" type="text"  name="cpf" maxlength="14">
+            <button class="btn" (click)="onConsultar()" [class.valido]="isCpfValido" [disabled]="isCpfValido">Consultar por CPF</button>
           </form>
 
+    </div>
+    <div class="resultado">
+      <div class="erro" *ngIf="mensagemErro.length > 0">
+         <p>{{mensagemErro}}</p>
+      </div>
+    </div>
+
+    <div class="sucesso" *ngIf="cliente">
+       <app-mostrar-cpf [cliente]="cliente"></app-mostrar-cpf>
     </div>

@@ -1,0 +1,23 @@
+<div *ngIf="cliente">
+    <div class="cardCliente">
+      <div class="titulo">
+        <p>Situação Cadastral do CPF</p>
+        <p>Consulta na Receita Federal</p>
+      </div>
+      <div class="containerNome">
+        <mat-icon>person</mat-icon>
+        <div class="nome">
+          <p>Nome</p>
+          <p>{{cliente.nome}}</p>
+        </div>
+      </div>
+      <div class="containerStatus">
+        <mat-icon>check_circle</mat-icon>
+        <div class="status">
+          <p>Situação do CPF</p>
+          <p>{{cliente.situacao}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>

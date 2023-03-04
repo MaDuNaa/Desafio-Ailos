@@ -12,8 +12,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { MostrarCPFComponent } from './views/mostrar-cpf/mostrar-cpf.component';
 
 
 @NgModule({
@@ -23,6 +26,7 @@ import { FooterComponent } from './components/footer/footer.component';
     NavComponent,
     ConsultaCpfComponent,
     FooterComponent,
+    MostrarCPFComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatToolbarModule,
     BrowserAnimationsModule,
     MatInputModule,
+    MatCardModule,
+    FormsModule
     
 
   ],
