@@ -16,40 +16,43 @@
     
         <h3>CPF</h3>
       
-          <form>
-            <input (input)="formataInput()"  [(ngModel)]="cpf" type="text"  name="cpf" maxlength="14">
-            <button class="btn" (click)="onConsultar()" [class.valido]="isCpfValido" [disabled]="isCpfValido">Consultar por CPF</button>
+          <form >
+            <input (input)="input()"  [(ngModel)]="cpf" type="text"  name="cpf" maxlength="14">
+            <button class="btn" (click)="consultarCpfCliente()" [class.valido]="verCpfValidado" [disabled]="verCpfValidado">Consultar por CPF</button>
           </form>
 
     </div>
-    <div class="resultado">
-      <div class="erro" *ngIf="mensagemErro.length > 0">
-         <p>{{mensagemErro}}</p>
+    <div class="cpfinvalido">
+      <div *ngIf="error.length > 0">
+         <p>{{error}}</p>
       </div>
     </div>
 
-    <div class="sucesso" *ngIf="cliente">
+    <div class="cardConsulta" *ngIf="cliente">
+
       <div *ngIf="cliente">
-        <div class="cardCliente">
-          <div class="titulo">
-            <p>Situação Cadastral do CPF</p>
+
+        <div >
+          <div>
+            <p class="text">Situação Cadastral do CPF</p>
             <p>Consulta na Receita Federal</p>
           </div>
-          <div class="containerNome">
+          <div class="divCliente">
             <mat-icon>person</mat-icon>
-            <div class="nome">
+            <div class="nomeCliente">
               <p>Nome</p>
-              <p>{{cliente.nome}}</p>
+              <h5 class="destaca">{{cliente.nome}}</h5>
             </div>
           </div>
-          <div class="containerStatus">
-            <mat-icon>check_circle</mat-icon>
-            <div class="status">
+          <div class="divSituacao">
+            <mat-icon class="check">check_circle</mat-icon>
+            <div class="situacao">
               <p>Situação do CPF</p>
-              <p>{{cliente.situacao}}</p>
+              <p class="destaca">{{cliente.situacao}}</p>
             </div>
           </div>
         </div>
     
       </div>
+
     </div>

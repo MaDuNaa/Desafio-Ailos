@@ -1,27 +1,33 @@
-# DesafioAilos
+#  Desafio do Ailos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.1.
+Este projeto foi desenvolvido para desafio do Ailos onde e para realizar uma consulta de CPF , na
+qual se o CPF for invalido , ele dar uma mensagem de erro na tela e se o CPF for valido exibir os
+dados do cooperado , e tambem seguir a interface passado no figma.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+##  Nessa Sistema de Consulta de CPF :
 
-## Code scaffolding
+ * Temos o navBar lateral com os icones de navegação e o Logo Ailos,
+      Tem o header com sinal de notificação , e acesso ao perfil do Usuario,
+        E a tela principal com as descrição e o input e botao para consultar o CPF.
+          E tipo um footer em baixo da tela com botoes de dicas e admissão.
+            Toda logica por tras em TypeScript...
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+```bash
+# Executar o projeto
+Para executar o projeto Angular npm install se precisar e para rodar 'ng s' no terminal.
+roda na porta : http://localhost:4200/
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Pré-requisitos:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+* Angular 15.0.1.
+* Utilizado Angular material
+* Visual Studio.
+* Controle da versão GIT instalada em sua máquina.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+------------------------------------------------- ---------------------------------------------
+##  Autor
+Matheus Nascimento

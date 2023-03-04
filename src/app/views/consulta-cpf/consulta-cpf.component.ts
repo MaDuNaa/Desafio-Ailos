@@ -12,9 +12,12 @@ import { ConsultacpfService } from 'src/app/services/consultacpf.service';
 export class ConsultaCpfComponent implements OnInit{
   
   // pagina?:number;
-  isCpfValido: boolean = false;
+  verCpfValidado: boolean = false;
+
   cpf: string = '';
-  mensagemErro: string = '';
+
+  error: string = '';
+
   cliente?: Cliente | null;
 
   constructor(private consultaCpf: ConsultacpfService) { }
@@ -23,43 +26,43 @@ export class ConsultaCpfComponent implements OnInit{
       
   }
 
- onConsultar(){
+ consultarCpfCliente(){
   if (this.cpf.length < 14) {
-    this.mensagemErro = 'CPF esta invalido.'
-    console.log('primeiro IF');
+    this.error = 'CPF esta invalido.'
+    
     return
   }
-  const cpfSemPontos = this.removePontos(this.cpf);
+  const formatacaoCpf = this.formataCpf(this.cpf);
   
-  if (this.validaCpf(cpfSemPontos)){
-    this.cliente = this.consultaCpf.clienteBusca(cpfSemPontos);
-    console.log(this.cliente);
+  if (this.consultandoCpf(formatacaoCpf)){
+    this.cliente = this.consultaCpf.clienteBusca(formatacaoCpf);
+   
     if (!this.cliente) {
-      this.mensagemErro = 'CPF não encontrado.'
-      console.log(' cpf nao encontrado ');
+      this.error = 'CPF não encontrado.'
+      
     } else {
-      this.isCpfValido = true;
-      this.mensagemErro = '';
+      this.verCpfValidado = true;
+      this.error = '';
     }
     return;
   }
-  this.mensagemErro = 'CPF esta invalido.';
+  this.error = 'CPF esta invalido.';
 }
 
- removePontos(cpfComPontos: string): string {
-    let cpfSemPontos = '';
+ formataCpf(cpfpontuacao: string): string {
+    let formatacaoCpf = '';
 
     for(let i = 0; i < 14; i++){
       if (i == 3 || i == 7 || i == 11 ) {
         continue;
       }
-      cpfSemPontos += cpfComPontos.charAt(i);
+      formatacaoCpf += cpfpontuacao.charAt(i);
 
     }
-    return cpfSemPontos;
+    return formatacaoCpf;
  }
 
- formataInput() {
+ input() {
    if (this.cpf.length == 3 || this.cpf.length == 7){
     this.cpf += '.';
    } else if (this.cpf.length == 11) {
@@ -67,24 +70,24 @@ export class ConsultaCpfComponent implements OnInit{
    }
  }
 
- validaCpf(cpf: string): boolean{
-  let Soma;
-  let Resto;
-  Soma = 0;
+ consultandoCpf(cpf: string): boolean{
+  let somando;
+  let restante;
+  somando = 0;
   if(cpf == "00000000000") return false;
 
-  for (let i=1; i<=9; i++) Soma = Soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
-  Resto = (Soma * 10) % 11;
+  for (let i=1; i<=9; i++) somando = somando + parseInt(cpf.substring(i-1, i)) * (11 - i);
+  restante = (somando * 10) % 11;
 
-  if((Resto ==10) || (Resto ==11)) Resto = 0;
-  if(Resto != parseInt(cpf.substring(9, 10)) ) return false;
+  if((restante ==10) || (restante ==11)) restante = 0;
+  if(restante != parseInt(cpf.substring(9, 10)) ) return false;
 
- Soma = 0;
- for (let i = 1; i <= 10; i++) Soma = Soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
- Resto = (Soma * 10) % 11;
+  somando = 0;
+ for (let i = 1; i <= 10; i++) somando = somando + parseInt(cpf.substring(i-1, i)) * (12 - i);
+ restante = (somando * 10) % 11;
 
- if((Resto == 10) || (Resto == 11))  Resto = 0;
- if(Resto != parseInt(cpf.substring(10, 11) ) ) return false;
+ if((restante == 10) || (restante == 11))  restante = 0;
+ if(restante != parseInt(cpf.substring(10, 11) ) ) return false;
 
  return true;
 

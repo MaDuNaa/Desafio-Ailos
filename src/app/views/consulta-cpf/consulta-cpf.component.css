@@ -94,7 +94,6 @@ h3{
 	position:relative;
 	top:1px;
 }
-  
 
   .campocpf {
     display: inline-block;
@@ -102,11 +101,63 @@ h3{
     margin-left: 50px;
   }
 
-  .example-card {
-    max-width: 200px;
-  }
 
-  /* .valido {
-    background-color: #D8D8D8 !important;
-  }
-   */
+   .cpfinvalido {
+    margin-left: 50px;
+    font-weight: 600;
+   }
+
+   .cardConsulta {
+     background-color: #FFFFFF;
+     border-radius: 1px;
+     box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+     padding: 15px;
+     margin: 20px 50px;
+     width: 200px;
+     transition: all 0.3s ease-out;
+   }
+
+   .text {
+    color: #000;
+    font-size: 15px;
+    font-weight: 500;
+   }
+
+   .destaca {
+      color: #000000;
+      font-weight: 580;
+   } 
+  
+   mat-icon {
+     padding-top: 5px;
+     padding: 12px;
+   }
+
+   .divCliente {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+   }
+
+   .divSituacao {
+    display: flex;
+    flex-direction: row;
+   }
+
+   .situacao {
+    flex-direction: column;
+   }
+
+   .nomeCliente {
+     flex-direction: column;
+   }
+
+   .check {
+    color: green;
+   }
+
+   p {
+     margin-bottom: -2px;
+   }
+
+  
