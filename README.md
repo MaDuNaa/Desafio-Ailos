@@ -19,6 +19,12 @@ dados do cooperado , e tambem seguir a interface passado no figma.
 # Executar o projeto
 Para executar o projeto Angular npm install se precisar e para rodar 'ng s' no terminal.
 roda na porta : http://localhost:4200/
+
+Tem 3 CPF cadastrado no sistema , esta na pasta service: consultacpf
+cpf: '14362490230' , cpf: '77486765691', cpf: '15152187914',
+   esses cpfs foram gerados em sites de geradores para teste de software ...
+Para funcionar o sistema na hora da consulta do CPF , usar um desses 3 , caso contrario
+ira dar CPF invalido.
 ```
 
 
