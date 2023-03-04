@@ -11,7 +11,7 @@ import { ConsultacpfService } from 'src/app/services/consultacpf.service';
 })
 export class ConsultaCpfComponent implements OnInit{
   
-  pagina?:number;
+  // pagina?:number;
   isCpfValido: boolean = false;
   cpf: string = '';
   mensagemErro: string = '';
@@ -23,17 +23,20 @@ export class ConsultaCpfComponent implements OnInit{
       
   }
 
- onConsultar() {
-  if(this.cpf.length < 14) {
+ onConsultar(){
+  if (this.cpf.length < 14) {
     this.mensagemErro = 'CPF esta invalido.'
+    console.log('primeiro IF');
     return
   }
   const cpfSemPontos = this.removePontos(this.cpf);
-
-  if(this.validaCpf(cpfSemPontos)){
+  
+  if (this.validaCpf(cpfSemPontos)){
     this.cliente = this.consultaCpf.clienteBusca(cpfSemPontos);
-    if(!this.cliente) {
+    console.log(this.cliente);
+    if (!this.cliente) {
       this.mensagemErro = 'CPF não encontrado.'
+      console.log(' cpf nao encontrado ');
     } else {
       this.isCpfValido = true;
       this.mensagemErro = '';
@@ -41,14 +44,13 @@ export class ConsultaCpfComponent implements OnInit{
     return;
   }
   this.mensagemErro = 'CPF esta invalido.';
-
- }
+}
 
  removePontos(cpfComPontos: string): string {
     let cpfSemPontos = '';
 
     for(let i = 0; i < 14; i++){
-      if(i == 3 || i == 7 || i == 11 ) {
+      if (i == 3 || i == 7 || i == 11 ) {
         continue;
       }
       cpfSemPontos += cpfComPontos.charAt(i);
@@ -65,7 +67,7 @@ export class ConsultaCpfComponent implements OnInit{
    }
  }
 
- validaCpf(cpf: string): boolean {
+ validaCpf(cpf: string): boolean{
   let Soma;
   let Resto;
   Soma = 0;
@@ -75,17 +77,16 @@ export class ConsultaCpfComponent implements OnInit{
   Resto = (Soma * 10) % 11;
 
   if((Resto ==10) || (Resto ==11)) Resto = 0;
-  if(Resto != parseInt(cpf.substring(9.10)) ) return false;
+  if(Resto != parseInt(cpf.substring(9, 10)) ) return false;
 
  Soma = 0;
+ for (let i = 1; i <= 10; i++) Soma = Soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
+ Resto = (Soma * 10) % 11;
 
-for (let i = 1; i <- 10; i++) Soma = Soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
-Resto = (Soma * 10) % 11;
+ if((Resto == 10) || (Resto == 11))  Resto = 0;
+ if(Resto != parseInt(cpf.substring(10, 11) ) ) return false;
 
-if((Resto == 10) || (Resto == 11))  Resto = 0;
-if(Resto != parseInt(cpf.substring(10, 11) ) ) return false;
-
-return true;
+ return true;
 
   }
 }

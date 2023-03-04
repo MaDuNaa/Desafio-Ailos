@@ -15,7 +15,7 @@ export class ConsultacpfService {
 
    clienteBusca(cpf: string): Cliente | undefined{
     for (let i = 0; i < this.cliente.length; i++){
-      if( this.cliente.at(i)?.cpf == cpf){
+      if (this.cliente.at(i)?.cpf == cpf){
         return this.cliente.at(i);
       }
     }
