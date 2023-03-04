@@ -92,6 +92,7 @@ export class ConsultaCpfComponent implements OnInit{
  return true;
 
   }
+
 }
 
 

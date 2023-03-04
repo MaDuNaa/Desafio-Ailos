@@ -12,6 +12,7 @@ dados do cooperado , e tambem seguir a interface passado no figma.
         E a tela principal com as descrição e o input e botao para consultar o CPF.
           E tipo um footer em baixo da tela com botoes de dicas e admissão.
             Toda logica por tras em TypeScript...
+             Clicando no logo vai pra pagina principal ...
 
 
 ```bash

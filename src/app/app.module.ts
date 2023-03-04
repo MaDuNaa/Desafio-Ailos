@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ConsultaCpfComponent } from './views/consulta-cpf/consulta-cpf.component';
+import { MostrarCPFComponent } from './views/mostrar-cpf/mostrar-cpf.component';
 
                     //MATERIAL
 import {MatIconModule} from '@angular/material/icon';
@@ -16,7 +17,8 @@ import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { MostrarCPFComponent } from './views/mostrar-cpf/mostrar-cpf.component';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import { MostrarCPFComponent } from './views/mostrar-cpf/mostrar-cpf.component';
     BrowserAnimationsModule,
     MatInputModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule,
     
 
   ],
